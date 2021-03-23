@@ -1,0 +1,121 @@
+:root {
+    --primary-color:#4834d4;
+    --success-color: #6ab04c;
+    --warning-color: #f0932b;
+    --danger-color: #eb4d4b;
+    
+    --Light-color: #212529;
+    --Light-second-color: #727475;
+    --Light-background: #ffffff;
+    --Light-second-background: #f1f1f1;
+    
+    --dark-color: #909090;
+    --dark-second-color: #f5f6fa;
+    --dark-background: #232420;
+    --dark-second-background: #181818;
+    
+    --main-bg-color: var(--Light-background);
+    --second-bg-color: var(--Light-second-background);
+    --main-color: var(--Light-color);
+    --second-color: var(--Light-second-background);
+}
+
+*{
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Roboto' , sans-serif;
+    background: #ffffff;
+    color: #212529;
+}
+
+.navbar{
+    display: flex;
+    flex-direction: row;
+    background: #ffffff;
+    color: #212529;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 100;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.navbar-nav {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    padding-left: 0;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.nav-link {
+    float: left;
+    text-align: center;
+    padding: 21px 10px ;
+    text-decoration: none;
+    font-size: 17px;
+    color: #212529;
+    position: relative;
+}
+
+.nav-link:hover {
+    cursor: pointer;
+}
+
+.navbar-nav i {
+    font-size: 1.4rem;
+}
+.nav-right {
+    margin-left: auto;
+}
+.navbar-search {
+    position: relative;
+    margin: auto;
+    width: 50%;
+}
+
+.navbar-search input {
+    background: #f1f1f1;
+    border: none;
+    padding: 12px 50px 12px 50px;
+    width: 100%;
+    outline: none;
+    color: #212529;
+    border-radius: 20px;
+}
+
+.navbar-search i {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    color: #212529;
+    cursor: pointer;
+}
+.logo {
+    height: 60px;
+    padding: 10px;
+}
+.avt img {
+    width: 39px;
+    height: 39px;
+    border-radius: 50%;
+}
+
+.avt {
+    padding: 11px;
+}
+
+.navbar-badge {
+    font-size: .6rem;
+    padding: 2px 4px;
+    position: absolute;
+    right: 5px;
+    top: 9px;
+    color: #fff;
+    background: #eb4d4b;
+    border-radius: 5px;
+}
