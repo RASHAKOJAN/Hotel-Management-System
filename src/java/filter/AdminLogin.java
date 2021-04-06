@@ -1,5 +1,6 @@
 package filter;
 
+import entity.Admin;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.io.PrintWriter;
@@ -11,17 +12,36 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 @WebFilter("/*")
 public class AdminLogin implements Filter {
 
-    public AdminLogin() {
-    }
-
     @Override
-    public void doFilter(ServletRequest request, ServletResponse response,
-            FilterChain chain)
-            throws IOException, ServletException {
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+        HttpServletRequest req = (HttpServletRequest) request;
+        HttpServletResponse res = (HttpServletResponse) response;
+        Admin a = (Admin) req.getSession().getAttribute("valid_user");
+        String url = req.getRequestURI();
+        if(a == null) {
+            if(url.contains("home") || url.contains("logout")){
+                res.sendRedirect(req.getContextPath()+"/adminLogin.xhtml");
+            }else {
+                chain.doFilter(request, response);
+            }
+        }else {
+            if(url.contains("register") || url.contains("adminLogin")) {
+                res.sendRedirect(req.getContextPath()+"/adminLogin.xhtml");
+            }else if (url.contains("logout")){
+                req.getSession().invalidate();
+                res.sendRedirect(req.getContextPath()+"/index.xhtml");
+            }else {
+                chain.doFilter(request, response);
+            }
+        }
+        
+        
     }
 
     @Override
