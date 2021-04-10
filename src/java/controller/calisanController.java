@@ -1,7 +1,8 @@
+
 package controller;
 
-import dao.adminDao;
-import entity.Admin;
+import dao.calisanDao;
+import entity.Calisan;
 import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,20 +14,19 @@ import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import util.DBConnection;
 
-
 @Named
 @SessionScoped
-public class adminController implements Serializable {
-  
-    private Admin admin = new Admin();
-    private adminDao dao;
+public class calisanController implements Serializable {
+    
+     private Calisan calisan = new Calisan();
+    private calisanDao dao;
     
     private DBConnection db = new DBConnection();
     private Connection c = db.connect();
     
     public boolean find(String username, String password) {
 		try {
-			PreparedStatement pst = this.getC().prepareStatement("select username, password from Admin where username = "+"'"+username+"'"+"and password ="+"'"+password+"'");
+			PreparedStatement pst = this.getC().prepareStatement("select username, password from calisan where username = "+"'"+username+"'"+"and password ="+"'"+password+"'");
 			ResultSet rs = pst.executeQuery();
 			if (rs.next()) {
                             
@@ -41,12 +41,12 @@ public class adminController implements Serializable {
 		return false;
 	}
      public String validate() {
-         if(find(this.admin.getUsername(), this.admin.getPassword())){
-             FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("valid_user", this.admin);
-                return "/adminPages/home?faces-redirect=true";
+         if(find(this.calisan.getUsername(), this.calisan.getPassword())){
+             FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("valid_user", this.calisan);
+                return "/calisanProfile/home?faces-redirect=true";
          }else
              FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Hata "));
-            return "adminLogin";
+            return "calisanLogin";
      }
    
      public DBConnection getDb() {
@@ -71,14 +71,10 @@ public class adminController implements Serializable {
         this.c = c;
     }
 
-
-    public Admin getAdmin() {
-        return admin;
+    public Calisan getCalisan() {
+        return calisan;
     }
-
-
     
 
-    
     
 }

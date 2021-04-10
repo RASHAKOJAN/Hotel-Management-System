@@ -18,15 +18,15 @@
                   <header class="panel-heading text-center"> Sign in </header>
                   <h:form class="panel-body">
                      <div class="form-group"> <label class="control-label">Username</label>
-                         <h:inputText class="form-control" value="#{adminController.admin.username}"/> </div>
+                         <h:inputText class="form-control" value="#{calisanController.calisan.username}"/> </div>
                      <div class="form-group"> <label class="control-label">Password</label>
-                         <h:inputText class="form-control"  value="#{adminController.admin.password}"/> </div>
+                         <h:inputText class="form-control"  value="#{calisanController.calisan.password}"/> </div>
                      <div class="checkbox"> <label> <input type="checkbox"/> Keep me logged in </label> </div>
                      <a href="#" class="pull-right m-t-xs"><small>Forgot password?</small></a> 
-                     <h:commandButton class="btn btn-info" action="#{adminController.validate()}" value="Login" />
+                     <h:commandButton class="btn btn-info" action="#{calisanController.validate()}" value="Login" />
                      <div class="line line-dashed"></div>                     <div class="line line-dashed"></div>
                      <p class="text-muted text-center"><small>Do not have an account?</small></p>
-                     <a href="signup.html" class="btn btn-white btn-block">Create an account</a> 
+                     <a href="signup.xhtml" class="btn btn-white btn-block">Create an account</a> 
                   </h:form>
                </section>
             </div>
