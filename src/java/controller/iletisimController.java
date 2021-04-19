@@ -13,6 +13,13 @@ import javax.inject.Named;
 public class iletisimController implements Serializable {
     private List<Iletisim> ilist ;
     private iletisimDao idao ;
+    private Iletisim iletisim;
+    
+    
+    public String create(){
+        this.getIdao().insert(this.iletisim);
+        return "iletisim";
+    }
 
     public iletisimController() {
         this.ilist = new ArrayList();
@@ -29,11 +36,24 @@ public class iletisimController implements Serializable {
     }
 
     public iletisimDao getIdao() {
+        if(this.idao == null)
+            this.idao = new iletisimDao();
         return idao;
     }
 
     public void setIdao(iletisimDao idao) {
         this.idao = idao;
     }
+
+    public Iletisim getIletisim() {
+        if(this.iletisim == null)
+            this.iletisim = new Iletisim();
+        return iletisim;
+    }
+
+    public void setIletisim(Iletisim iletisim) {
+        this.iletisim = iletisim;
+    }
+    
     
 }

@@ -13,14 +13,14 @@
             function hideURLbar() {
                 window.scrollTo(0, 1);
             }</script>
-        <link href="plugins/resource/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-        <link rel="stylesheet" href="plugins/resource/css/flexslider.css" type="text/css" media="screen" property="" />
-        <link rel="stylesheet" type="text/css" href="plugins/resource/css/zoomslider.css" />
-        <link rel="stylesheet" type="text/css" href="plugins/resource/css/design.css" />
-        <link href="plugins/resource/css/font-awesome.css" rel="stylesheet"/> 
-        <script type="text/javascript" src="plugins/resource/js/modernizr-2.6.2.min.js"></script>
+        <link href="#{facesContext.externalContext.requestContextPath}/plugins/resource/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+        <link rel="stylesheet" href="#{facesContext.externalContext.requestContextPath}/plugins/resource/css/flexslider.css" type="text/css" media="screen" property="" />
+        <link rel="stylesheet" type="text/css" href="#{facesContext.externalContext.requestContextPath}/plugins/resource/css/zoomslider.css" />
+        <link rel="stylesheet" type="text/css" href="#{facesContext.externalContext.requestContextPath}/plugins/resource/css/design.css" />
+        <link href="#{facesContext.externalContext.requestContextPath}/plugins/resource/css/font-awesome.css" rel="stylesheet"/> 
+        <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/plugins/resource/js/modernizr-2.6.2.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-        <link rel="stylesheet" href="../../plugins/resource/css/all.min.css" />
+        <link rel="stylesheet" href="#{facesContext.externalContext.requestContextPath}/plugins/resource/css/all.min.css" />
         <link href="https://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600" rel="stylesheet"/>
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i" rel="stylesheet"/>
         <title>Facelet Title</title>
@@ -43,7 +43,7 @@
                 <div class="clearfix" />
             </div>
         </div>
-        <div id="demo-1" data-zs-src="[&quot;plugins/resource/pic/4.jpg&quot;, &quot;plugins/resource/pic/2.jpg&quot;, &quot;plugins/resource/pic/1.jpg&quot;,&quot;plugins/resource/pic/3.jpg&quot;]" data-zs-overlay="dots">
+        <div id="demo-1" data-zs-src="[&quot;#{facesContext.externalContext.requestContextPath}/plugins/resource/pic/4.jpg&quot;, &quot;#{facesContext.externalContext.requestContextPath}/plugins/resource/pic/2.jpg&quot;, &quot;plugins/resource/pic/1.jpg&quot;,&quot;plugins/resource/pic/3.jpg&quot;]" data-zs-overlay="dots">
             <div class="demo-inner-content">
                 <div class="header-w3-agileits" id="home">
                     <div class="inner-header-agile">	
@@ -72,7 +72,9 @@
                                         </ul>
                                     </li>
                                     <li><a href="iletisim.xhtml">Iletisim</a></li>
-                                    <li><h:outputLink value="uyeLogin.xhtml">Login</h:outputLink></li>
+                                    <li><h:outputLink value="profile.xhtml">Profile</h:outputLink></li>
+                                    <li><h:outputLink value="logout.xhtml">Logout</h:outputLink></li>
+                                    
                                 </ul>
                             </div>
                             <div class="clearfix"> </div>	
@@ -109,7 +111,7 @@
                     <div class="col-md-3 w3_agileits_services_grid hvr-overline-from-center">
                         <div class="w3_agileits_services_grid_agile">
                             <div class="w3_agileits_services_grid_1">
-                                <img src="plugins/resource/pic/5.jpg" alt="service-img" />
+                                <img src="#{facesContext.externalContext.requestContextPath}/plugins/resource/pic/5.jpg" alt="service-img" />
                             </div>
                             <h3>Deluxe Room</h3>
                             <p>.......</p>
@@ -118,7 +120,7 @@
                     <div class="col-md-3 w3_agileits_services_grid hvr-overline-from-center">
                         <div class="w3_agileits_services_grid_agile">
                             <div class="w3_agileits_services_grid_1">
-                                <img src="plugins/resource/pic/6.jpg" alt="service-img" />
+                                <img src="#{facesContext.externalContext.requestContextPath}/plugins/resource/pic/6.jpg" alt="service-img" />
                             </div>
                             <h3>Luxury Room</h3>
                             <p>........</p>
@@ -127,7 +129,7 @@
                     <div class="col-md-3 w3_agileits_services_grid hvr-overline-from-center">
                         <div class="w3_agileits_services_grid_agile">
                             <div class="w3_agileits_services_grid_1">
-                                <img src="plugins/resource/pic/7.jpg" alt="service-img" />
+                                <img src="#{facesContext.externalContext.requestContextPath}/plugins/resource/pic/7.jpg" alt="service-img" />
                             </div>
                             <h3>Swimming Pool</h3>
                             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
@@ -136,7 +138,7 @@
                     <div class="col-md-3 w3_agileits_services_grid hvr-overline-from-center">
                         <div class="w3_agileits_services_grid_agile">
                             <div class="w3_agileits_services_grid_1">
-                                <img src="plugins/resource/pic/8.jpg" alt="service-img" />
+                                <img src="#{facesContext.externalContext.requestContextPath}/plugins/resource/pic/8.jpg" alt="service-img" />
                             </div>
                             <h3>Spa Care</h3>
                             <p>..........</p>
@@ -175,7 +177,7 @@
         <div class="about-bottom">
             <div class="col-md-6 w3l_about_bottom_left">
                 <div class="video-grid-single-page-agileits">
-                    <div data-video="44fbHx7P-t8" id="video"> <img src="plugins/resource/pic/watch.jpg" alt="" class="img-responsive" /> </div>
+                    <div data-video="44fbHx7P-t8" id="video"> <img src="#{facesContext.externalContext.requestContextPath}/plugins/resource/pic/watch.jpg" alt="" class="img-responsive" /> </div>
                 </div>
                 <div class="w3l_about_bottom_left_video">
                     <h4>watch our video</h4>
@@ -309,7 +311,7 @@
                 </div>
             </div>
             <div class="col-md-6 w3l_about_bottom_left">
-                <img src="plugins/resource/pic/33.jpg" alt="" class="img-responsive" />
+                <img src="#{facesContext.externalContext.requestContextPath}/plugins/resource/pic/33.jpg" alt="" class="img-responsive" />
                 <div class="w3l_about_bottom_left_video book-text">
                     <h4>BooK Now</h4>
                 </div>
@@ -448,16 +450,16 @@
                     <div class="col-md-3 footer-grid">
                         <h4>Instagram</h4>
                         <div class="footer-grid-instagram">
-                            <a href="#"><img src="plugins/resource/pic/f1.jpg" alt=" " class="img-responsive" /></a>
+                            <a href="#"><img src="#{facesContext.externalContext.requestContextPath}/plugins/resource/pic/f1.jpg" alt=" " class="img-responsive" /></a>
                         </div>
                         <div class="footer-grid-instagram">
-                            <a href="#"><img src="plugins/resource/pic/f2.jpg" alt=" " class="img-responsive" /></a>
+                            <a href="#"><img src="#{facesContext.externalContext.requestContextPath}/plugins/resource/pic/f2.jpg" alt=" " class="img-responsive" /></a>
                         </div>
                         <div class="footer-grid-instagram">
-                            <a href="#"><img src="plugins/resource/pic/f3.jpg" alt=" " class="img-responsive" /></a>
+                            <a href="#"><img src="#{facesContext.externalContext.requestContextPath}/plugins/resource/pic/f3.jpg" alt=" " class="img-responsive" /></a>
                         </div>
                         <div class="footer-grid-instagram">
-                            <a href="#"><img src="plugins/resource/pic/f4.jpg" alt=" " class="img-responsive" /></a>
+                            <a href="#"><img src="#{facesContext.externalContext.requestContextPath}/plugins/resource/pic/f4.jpg" alt=" " class="img-responsive" /></a>
                         </div>
                         <div class="clearfix"> </div>
                     </div>
@@ -489,7 +491,7 @@
             </div>
         </div>
         <a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
-        <script type="text/javascript" src="plugins/resource/js/jquery-2.1.4.min.js"></script>
+        <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/plugins/resource/js/jquery-2.1.4.min.js"></script>
         <script>
                                                                                     $(document).ready(function () {
                                                                                         $(".dropdown").hover(
@@ -504,15 +506,15 @@
                                                                                         );
                                                                                     });
         </script>
-        <script type="text/javascript" src="plugins/resource/js/jquery.zoomslider.min.js"></script>
-        <script src="plugins/resource/js/main.js"></script>
-        <script src="plugins/resource/js/simplePlayer.js"></script>
+        <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/plugins/resource/js/jquery.zoomslider.min.js"></script>
+        <script src="#{facesContext.externalContext.requestContextPath}/plugins/resource/js/main.js"></script>
+        <script src="#{facesContext.externalContext.requestContextPath}/plugins/resource/js/simplePlayer.js"></script>
         <script>
                                                                                     $("document").ready(function () {
                                                                                         $("#video").simplePlayer();
                                                                                     });
         </script>
-        <script defer="" src="plugins/resource/js/jquery.flexslider.js"></script>
+        <script defer="" src="#{facesContext.externalContext.requestContextPath}/plugins/resource/js/jquery.flexslider.js"></script>
         <script type="text/javascript">
                                                                                     $(window).load(function () {
                                                                                         $('.flexslider').flexslider({
@@ -523,15 +525,15 @@
                                                                                         });
                                                                                     });
         </script>
-        <link rel="stylesheet" href="plugins/resource/css/jquery-ui.css" />
-        <script src="plugins/resource/js/jquery-ui.js"></script>
+        <link rel="stylesheet" href="#{facesContext.externalContext.requestContextPath}/plugins/resource/css/jquery-ui.css" />
+        <script src="#{facesContext.externalContext.requestContextPath}/plugins/resource/js/jquery-ui.js"></script>
         <script>
                                                                                     $(function () {
                                                                                         $("#datepicker,#datepicker1,#datepicker2,#datepicker3").datepicker();
                                                                                     });
         </script>
-        <script type="text/javascript" src="plugins/resource/js/move-top.js"></script>
-        <script type="text/javascript" src="plugins/resource/js/easing.js"></script>
+        <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/plugins/resource/js/move-top.js"></script>
+        <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/plugins/resource/js/easing.js"></script>
 
         <script type="text/javascript">
                                                                                     jQuery(document).ready(function ($) {
@@ -556,6 +558,6 @@
 
             });
         </script>
-        <script src="plugins/resource/js/bootstrap.js"></script>
+        <script src="#{facesContext.externalContext.requestContextPath}/plugins/resource/js/bootstrap.js"></script>
     </h:body>
 </html>

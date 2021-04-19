@@ -1,6 +1,6 @@
 package dao;
 
-import entity.Calisan;
+import entity.Uye;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,14 +12,14 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import util.DBConnection;
 
-public class calisanDao {
+public class uyeDao {
     private DBConnection db = new DBConnection();
     private Connection c = db.connect();
     
     
     public boolean validate(String username, String password) {
 		try {
-			PreparedStatement pst = this.getC().prepareStatement("select username, password from Calisan where username = "+"'"+username+"'"+"and password ="+"'"+password+"'");
+			PreparedStatement pst = this.getC().prepareStatement("select username, password from Uye where username = "+"'"+username+"'"+"and password ="+"'"+password+"'");
 			ResultSet rs = pst.executeQuery();
 			if (rs.next()) {
                             
@@ -34,38 +34,39 @@ public class calisanDao {
 		return false;
 	}
     
-     public List<Calisan> getCalisan() {
-        List<Calisan> alist = new ArrayList();
+     public List<Uye> getUye() {
+        List<Uye> alist = new ArrayList();
         try {
             Statement st = c.createStatement();
-            ResultSet rs = st.executeQuery("select * from Calisan");
+            ResultSet rs = st.executeQuery("select * from Uye");
             while (rs.next()) {
-                Calisan tmp = new Calisan(rs.getInt("id"), rs.getString("isim"),rs.getString("username"), rs.getString("email"), rs.getString("phone"),rs.getString("password"));
+                Uye tmp = new Uye(rs.getInt("id"), rs.getString("isim"),rs.getString("username"), rs.getString("email"), rs.getString("phone"),rs.getString("password"),rs.getString("address"));
                 alist.add(tmp);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(calisanDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(uyeDao.class.getName()).log(Level.SEVERE, null, ex);
         }
         return alist;
     }
      
-     public void insert(Calisan calisan) {
+     public void insert(Uye uye) {
         try {
-            PreparedStatement pst = this.getC().prepareStatement("insert into  calisan (isim, username, email, phone, password) values (?,?,?,?,?)");
-            pst.setString(1, calisan.getIsim());
-            pst.setString(2, calisan.getUsername());
-            pst.setString(3, calisan.getEmail());
-            pst.setString(4, calisan.getPhone());
-            pst.setString(5, calisan.getPassword());
+            PreparedStatement pst = this.getC().prepareStatement("insert into  uye (isim, username, email, phone, password, address) values (?,?,?,?,?,?)");
+            pst.setString(1, uye.getIsim());
+            pst.setString(2, uye.getUsername());
+            pst.setString(3, uye.getEmail());
+            pst.setString(4, uye.getPhone());
+            pst.setString(5, uye.getPassword());
+            pst.setString(5, uye.getAddress());
             pst.executeUpdate();
         } catch (SQLException ex) {
         }
     }
 
-    public void delete(Calisan calisan) {
+    public void delete(Uye uye) {
         try {
             Statement st = this.getC().createStatement();
-            st.executeUpdate("delete from calisan where id=" + calisan.getId());
+            st.executeUpdate("delete from uye where id=" + uye.getId());
         } catch (SQLException ex) {
         }
     }
@@ -94,4 +95,5 @@ public class calisanDao {
         this.c = c;
     }
 
+    
 }

@@ -19,26 +19,30 @@ public class AdminLogin implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse res = (HttpServletResponse) response;
+        res.setHeader("Pragma", "no-cache");
+        res.setHeader("Cache-Control", "no-cache, max-age=0, must-revalidate,no-store");
+        res.setHeader("X-UA-Compatible", "IE=edge");
         Admin a = (Admin) req.getSession().getAttribute("valid_user");
         String url = req.getRequestURI();
-        if(a == null) {
-            if(url.contains("home") || url.contains("logout")){
-                res.sendRedirect(req.getContextPath()+"/adminLogin.xhtml");
-            }else {
+        String loginURL = req.getContextPath() + "/faces/adminLogin.xhtml";
+        // boolean resourceRequest = req.getRequestURI().startsWith(req.getContextPath() + "/faces" + ResourceHandler.RESOURCE_IDENTIFIER);
+        if (a == null) {
+            if (url.contains("home") || url.contains("logout")) {
+                res.sendRedirect(loginURL);
+            } else {
                 chain.doFilter(request, response);
             }
-        }else {
-            if(url.contains("register") || url.contains("adminLogin")) {
-                res.sendRedirect(req.getContextPath()+"/adminLogin.xhtml");
-            }else if (url.contains("logout")){
+        } else {
+            if (url.contains("register") || url.contains("adminLogin")) {
+                res.sendRedirect(loginURL);
+            } else if (url.contains("logout")) {
                 req.getSession().invalidate();
-                res.sendRedirect(req.getContextPath()+"/index.xhtml");
-            }else {
+                res.sendRedirect(req.getContextPath() + "/index.xhtml");
+            } else {
                 chain.doFilter(request, response);
             }
         }
-        
-        
+
     }
 
     @Override
@@ -51,5 +55,4 @@ public class AdminLogin implements Filter {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-  
 }

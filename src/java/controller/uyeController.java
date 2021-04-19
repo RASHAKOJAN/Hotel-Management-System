@@ -1,8 +1,7 @@
-
 package controller;
 
-import dao.calisanDao;
-import entity.Calisan;
+import dao.uyeDao;
+import entity.Uye;
 import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,17 +15,18 @@ import util.DBConnection;
 
 @Named
 @SessionScoped
-public class calisanController implements Serializable {
+public class uyeController implements Serializable{
     
-    private Calisan calisan = new Calisan();
-    private calisanDao dao;
+    
+    private Uye uye = new Uye();
+    private uyeDao dao;
     
     private DBConnection db = new DBConnection();
     private Connection c = db.connect();
     
     public boolean find(String username, String password) {
 		try {
-			PreparedStatement pst = this.getC().prepareStatement("select username, password from calisan where username = "+"'"+username+"'"+"and password ="+"'"+password+"'");
+			PreparedStatement pst = this.getC().prepareStatement("select username, password from uye where username = "+"'"+username+"'"+"and password ="+"'"+password+"'");
 			ResultSet rs = pst.executeQuery();
 			if (rs.next()) {
                             
@@ -40,13 +40,14 @@ public class calisanController implements Serializable {
                 }
 		return false;
 	}
+    
      public String validate() {
-         if(find(this.calisan.getUsername(), this.calisan.getPassword())){
-             FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("valid_user", this.calisan);
-                return "/calisanProfile/home?faces-redirect=true";
+         if(find(this.uye.getUsername(), this.uye.getPassword())){
+             FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("valid_user", this.uye);
+                return "/musteriPages/home?faces-redirect=true";
          }else
              FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Hata "));
-            return "calisanLogin";
+            return "uyeLogin";
      }
    
      public DBConnection getDb() {
@@ -71,10 +72,9 @@ public class calisanController implements Serializable {
         this.c = c;
     }
 
-    public Calisan getCalisan() {
-        return calisan;
+    public Uye getUye() {
+        return uye;
     }
     
-
     
 }

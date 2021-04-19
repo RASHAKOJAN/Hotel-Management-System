@@ -6,27 +6,27 @@
     <h:head>
         <title>TODO supply a title</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-              <link rel="stylesheet" href="#{facesContext.externalContext.requestContextPath}/plugins/resource/css/app.v2.css" type="text/css"/>
-              <link rel="stylesheet" href="#{facesContext.externalContext.requestContextPath}/plugins/resource/css/font.css" type="text/css"/>
+              <link rel="stylesheet" href="plugins/resource/css/app.v2.css" type="text/css"/>
+              <link rel="stylesheet" href="plugins/resource/css/font.css" type="text/css"/>
     </h:head>
     <h:body>
         <section id="content" class="m-t-lg wrapper-md animated fadeInUp">
-         <a class="nav-brand" href="index.xhtml"> Admin Login</a> 
+         <a class="nav-brand" href="index.xhtml">Login</a> 
          <div class="row m-n">
             <div class="col-md-4 col-md-offset-4 m-t-lg">
                <section class="panel">
                   <header class="panel-heading text-center"> Sign in </header>
                   <h:form class="panel-body">
                      <div class="form-group"> <label class="control-label">Username</label>
-                         <h:inputText class="form-control" value="#{adminController.admin.username}"/> </div>
+                         <h:inputText class="form-control" value="#{uyeController.uye.username}"/> </div>
                      <div class="form-group"> <label class="control-label">Password</label>
-                         <h:inputText class="form-control"  value="#{adminController.admin.password}"/> </div>
+                         <h:inputText class="form-control"  value="#{uyeController.uye.password}"/> </div>
                      <div class="checkbox"> <label> <input type="checkbox"/> Keep me logged in </label> </div>
                      <a href="#" class="pull-right m-t-xs"><small>Forgot password?</small></a> 
-                     <h:commandButton class="btn btn-info" action="#{adminController.validate()}" value="Login" />
+                     <h:commandButton class="btn btn-info" action="#{uyeController.validate()}" value="Login" />
                      <div class="line line-dashed"></div>                     <div class="line line-dashed"></div>
                      <p class="text-muted text-center"><small>Do not have an account?</small></p>
-                     <a href="signup.html" class="btn btn-white btn-block">Create an account</a> 
+                     <a href="signup.xhtml" class="btn btn-white btn-block">Create an account</a> 
                   </h:form>
                </section>
             </div>
