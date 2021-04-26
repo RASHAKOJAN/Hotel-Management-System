@@ -8,6 +8,55 @@
     <ui:define name="content">
         <div class="wrapper">
             <h1> Oda </h1>
+            <h:form>
+                <h:dataTable value="#{odaController.ilist}" var="oda" style="font-size: 1.40em;font-weight: bold; font-style: italic; text-align:center; padding: 12px 15px; background:none repeat scroll 0 0 #E5E5E5;border-bottom:1px solid #BBBBBB;border-left:1px solid #BBBBBB; border-right: 1px solid #BBBBBB; border-top:1px solid #BBBBBB; border-collapse: collapse ;color: black; width: 100%;max-width: 100%;table-layout: fixed; ">
+                    <h:column>
+                        <f:facet name="header">ODA ID</f:facet>
+                            #{oda.id}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">ODA NUMARA</f:facet>
+                            #{oda.oda_no}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">ISIM</f:facet>
+                        <h:commandButton action="#{odaController.updateForm(oda)}" value="#{oda.isim}"/>
+                        
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">ODA BOYUT</f:facet>
+                            #{oda.boyut}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">ODA FIYAT</f:facet>
+                            #{oda.fiyat}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">ODA KATEGORI NUMARA</f:facet>
+                            #{oda.oid}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">KAT NUMARA</f:facet>
+                            #{oda.kid}
+                    </h:column>
+                    <h:column><f:facet name="header">
+                        DELETE
+                        </f:facet>
+                            <h:commandButton style="background: red" action="#{odaController.delete(oda)}" value="Delete" />
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+            <h:form style="font-size: 1.40em;font-weight: bold; font-style: italic; text-align: left; padding: 12px 15px ; border-bottom:1px solid #BBBBBB;border-left:1px solid #BBBBBB; border-right: 1px solid #BBBBBB; border-top:1px solid #BBBBBB;">
+                <h:inputHidden value="#{odaController.oda.id}"/>
+                ODA NUMARA : <h:inputText value="#{odaController.oda.oda_no}"/><br/>
+                ISIM : <h:inputText value="#{odaController.oda.isim}"/><br/>
+                ODA BOYUT :<h:inputText value="#{odaController.oda.boyut}"/><br/>
+                ODA FIYAT : <h:inputText value="#{odaController.oda.fiyat}"/><br/>
+                ODA KATEGORI NUMARA : <h:inputText value="#{odaController.oda.oid}"/><br/>
+                KAT NUMARA : <h:inputText value="#{odaController.oda.kid}"/><br/>
+                <h:commandButton rendered="#{odaController.oda.id != null}" value="Update" style="background-color:  #ffc107 ; width: 10% ; height: 10%" action="#{odaController.update()}" />
+                <h:commandButton rendered="#{odaController.oda.id == null}" value="Create" style="background-color:  #0085c3 ; width: 10% ; height: 10%" action="#{odaController.create()}"/>
+            </h:form>
         </div>
     </ui:define>
 </ui:composition>

@@ -8,6 +8,30 @@
     <ui:define name="content">
         <div class="wrapper">
             <h1> Kat </h1>
+            <h:form>
+                <h:dataTable value="#{katController.ilist}" var="kat" style="font-size: 1.40em;font-weight: bold; font-style: italic; text-align:center; padding: 12px 15px; background:none repeat scroll 0 0 #E5E5E5;border-bottom:1px solid #BBBBBB;border-left:1px solid #BBBBBB; border-right: 1px solid #BBBBBB; border-top:1px solid #BBBBBB; border-collapse: collapse ;color: black; width: 100%;max-width: 100%;table-layout: fixed; ">
+                    <h:column>
+                        <f:facet name="header"> KAT ID</f:facet>
+                            #{kat.id}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">KAT NUMARA</f:facet>
+                        <h:commandButton action="#{katController.updateForm(kat)}" value="#{kat.kat_no}"/>
+                            #{kat.kat_no}
+                    </h:column>
+                    <h:column><f:facet name="header">
+                        DELETE
+                        </f:facet>
+                            <h:commandButton style="background: red" action="#{katController.delete(kat)}" value="Delete" />
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+            <h:form style="font-size: 1.40em;font-weight: bold; font-style: italic; text-align: left; padding: 12px 15px ; border-bottom:1px solid #BBBBBB;border-left:1px solid #BBBBBB; border-right: 1px solid #BBBBBB; border-top:1px solid #BBBBBB;">
+                <h:inputHidden value="#{katController.kat.id}"/>
+                KAT NUMARA : <h:inputText value="#{katController.kat.kat_no}"/><br/>
+                <h:commandButton rendered="#{katController.kat.id != null}" value="Update" style="background-color:  #ffc107 ; width: 10% ; height: 10%" action="#{katController.update()}" />
+                <h:commandButton rendered="#{katController.kat.id == null}" value="Create" style="background-color:  #0085c3 ; width: 10% ; height: 10%" action="#{katController.create()}"/>
+            </h:form>
         </div>
     </ui:define>
 </ui:composition>

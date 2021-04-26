@@ -26,7 +26,7 @@ public class katDao {
                 alist.add(tmp);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(iletisimDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(katDao.class.getName()).log(Level.SEVERE, null, ex);
         }
         return alist;
     }
