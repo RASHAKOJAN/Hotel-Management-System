@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/template/admintemp.xhtml">
+    <ui:define name="content">
+        <div class="wrapper">
+            <h1> ODA CALISKAN </h1>
+            <h:form>
+                <h:dataTable value="#{oda_CalController.ilist}" var="oda" style="font-size: 1.40em;font-weight: bold; font-style: italic; text-align:center; padding: 12px 15px; background:none repeat scroll 0 0 #E5E5E5;border-bottom:1px solid #BBBBBB;border-left:1px solid #BBBBBB; border-right: 1px solid #BBBBBB; border-top:1px solid #BBBBBB; border-collapse: collapse ;color: black; width: 100%;max-width: 100%;table-layout: fixed; ">
+                    <h:column>
+                        <f:facet name="header">ID</f:facet>
+                            #{oda.id}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">ODA ID</f:facet>
+                            #{oda.oid}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Caliskan ID</f:facet>
+                            #{oda.cid}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">GUN</f:facet>
+                        <h:commandButton action="#{oda_CalController.updateForm(oda)}" value="#{oda.gun}"/>
+                    </h:column>
+                    <h:column><f:facet name="header">
+                        DELETE
+                        </f:facet>
+                        <h:commandButton style="background: red" action="#{oda_CalController.delete(oda)}" value="Delete" />
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+            <h:form style="font-size: 1.40em;font-weight: bold; font-style: italic; text-align: left; padding: 12px 15px ; border-bottom:1px solid #BBBBBB;border-left:1px solid #BBBBBB; border-right: 1px solid #BBBBBB; border-top:1px solid #BBBBBB;">
+                <h:inputHidden value="#{oda_CalController.oda.id}"/>
+                ODA ID : <h:inputText value="#{oda_CalController.oda.oid}"/><br/>
+                CALISKAN ID :<h:inputText value="#{oda_CalController.oda.cid}"/><br/>
+                GUN : <h:inputText value="#{oda_CalController.oda.gun}"/><br/>
+                <h:commandButton rendered="#{oda_CalController.oda.id != null}" value="Update" style="background-color:  #ffc107 ; width: 10% ; height: 10%" action="#{odaController.update()}" />
+                <h:commandButton rendered="#{oda_CalController.oda.id == null}" value="Create" style="background-color:  #0085c3 ; width: 10% ; height: 10%" action="#{odaController.create()}"/>
+            </h:form>
+        </div>
+    </ui:define>
+</ui:composition>
