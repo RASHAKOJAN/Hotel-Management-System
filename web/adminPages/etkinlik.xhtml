@@ -8,6 +8,50 @@
     <ui:define name="content">
         <div class="wrapper">
             <h1> Etkinlikler </h1>
+        <h:form>
+                <h:dataTable value="#{etkinlikController.ilist}" var="etkinlik" style="font-size: 1.40em;font-weight: bold; font-style: italic; text-align:center; padding: 12px 15px; background:none repeat scroll 0 0 #E5E5E5;border-bottom:1px solid #BBBBBB;border-left:1px solid #BBBBBB; border-right: 1px solid #BBBBBB; border-top:1px solid #BBBBBB; border-collapse: collapse ;color: black; width: 100%;max-width: 100%;table-layout: fixed; ">
+                    <h:column>
+                        <f:facet name="header">ETKINLIK ID</f:facet>
+                            #{etkinlik.id}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">ACIKLAMA</f:facet>
+                            #{etkinlik.aciklama}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">GUN</f:facet>
+                        <h:commandButton action="#{etkinlikController.updateForm(etkinlik)}" value="#{etkinlik.gun}"/>
+                        
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">ODA ACMA ZAMAN</f:facet>
+                            #{etkinlik.acma_zaman}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">ODA KAPATMA ZAMAN</f:facet>
+                            #{etkinlik.kapatma_zaman}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">FIYAT</f:facet>
+                            #{etkinlik.fiyat}
+                    </h:column>
+                    <h:column><f:facet name="header">
+                        DELETE
+                        </f:facet>
+                            <h:commandButton style="background: red" action="#{etkinlikController.delete(etkinlik)}" value="Delete" />
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+            <h:form style="font-size: 1.40em;font-weight: bold; font-style: italic; text-align: left; padding: 12px 15px ; border-bottom:1px solid #BBBBBB;border-left:1px solid #BBBBBB; border-right: 1px solid #BBBBBB; border-top:1px solid #BBBBBB;">
+                <h:inputHidden value="#{etkinlikController.etkinlik.id}"/>
+                ACIKLAMA : <h:inputText value="#{etkinlikController.etkinlik.aciklama}"/><br/>
+                GUN : <h:inputText value="#{etkinlikController.etkinlik.gun}"/><br/>
+                ACMA ZAMAN :<h:inputText value="#{etkinlikController.etkinlik.acma_zaman}"/><br/>
+                KAPATMA ZAMAN : <h:inputText value="#{etkinlikController.etkinlik.kapatma_zaman}"/><br/>
+                FIYAT : <h:inputText value="#{etkinlikController.etkinlik.fiyat}"/><br/>
+                <h:commandButton rendered="#{etkinlikController.etkinlik.id != null}" value="Update" style="background-color:  #ffc107 ; width: 10% ; height: 10%" action="#{etkinlikController.update()}" />
+                <h:commandButton rendered="#{etkinlikController.etkinlik.id == null}" value="Create" style="background-color:  #0085c3 ; width: 10% ; height: 10%" action="#{etkinlikController.create()}"/>
+            </h:form>
         </div>
     </ui:define>
 </ui:composition>
