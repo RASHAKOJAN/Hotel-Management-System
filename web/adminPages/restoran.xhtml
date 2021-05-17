@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/template/admintemp.xhtml">
+    <ui:define name="content">
+        <div class="wrapper">
+            <h1> Restoran </h1>
+        <h:form>
+                <h:dataTable value="#{restoranController.ilist}" var="restoran" style="font-size: 1.40em;font-weight: bold; font-style: italic; text-align:center; padding: 12px 15px; background:none repeat scroll 0 0 #E5E5E5;border-bottom:1px solid #BBBBBB;border-left:1px solid #BBBBBB; border-right: 1px solid #BBBBBB; border-top:1px solid #BBBBBB; border-collapse: collapse ;color: black; width: 100%;max-width: 100%;table-layout: fixed; ">
+                    <h:column>
+                        <f:facet name="header">RESTORAN ID</f:facet>
+                            #{restoran.id}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">RESTORAN ACIKLAMA</f:facet>
+                            #{restoran.aciklama}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">REOTRAN GUN</f:facet>
+                        <h:commandButton action="#{restoranController.updateForm(restoran)}" value="#{restoran.gun}"/>
+                        
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">ACMA ZAMANI</f:facet>
+                            #{restoran.acma}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">KAPATMA ZAMANI</f:facet>
+                            #{restoran.kapatma}
+                    </h:column>
+                    <h:column><f:facet name="header">
+                        DELETE
+                        </f:facet>
+                            <h:commandButton style="background: red" action="#{restoranController.delete(restoran)}" value="Delete" />
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+            <h:form style="font-size: 1.40em;font-weight: bold; font-style: italic; text-align: left; padding: 12px 15px ; border-bottom:1px solid #BBBBBB;border-left:1px solid #BBBBBB; border-right: 1px solid #BBBBBB; border-top:1px solid #BBBBBB;">
+                <h:inputHidden value="#{restoranController.oda.id}"/>
+                RESTORAN ACIKLAMA : <h:inputText value="#{restoranController.restoran.aciklama}"/><br/>
+                REOTRAN GUN : <h:inputText value="#{restoranController.restoran.gun}"/><br/>
+                ACMA ZAMANI :<h:inputText value="#{restoranController.restoran.acma}"/><br/>
+                KAPATMA ZAMANI : <h:inputText value="#{restoranController.restoran.kapatma}"/><br/>
+                <h:commandButton rendered="#{restoranController.restoran.id != null}" value="Update" style="background-color:  #ffc107 ; width: 10% ; height: 10%" action="#{restoranController.update()}" />
+                <h:commandButton rendered="#{restoranController.restoran.id == null}" value="Create" style="background-color:  #0085c3 ; width: 10% ; height: 10%" action="#{restoranController.create()}"/>
+            </h:form>
+        </div>
+    </ui:define>
+</ui:composition>
