@@ -247,6 +247,18 @@
             </div>
             <div class="clearfix"> </div>
         </div>
+            <h:form style="font-size: 1.40em;font-weight: bold; font-style: italic; text-align: left; padding: 12px 15px ; border-bottom:1px solid #BBBBBB;border-left:1px solid #BBBBBB; border-right: 1px solid #BBBBBB; border-top:1px solid #BBBBBB;">
+                <h:inputHidden value="#{etkinlikController.etkinlik.id}"/>
+                ACIKLAMA : <h:inputText value="#{etkinlikController.etkinlik.aciklama}"/><br/>
+                GUN : <h:inputText value="#{etkinlikController.etkinlik.gun}"/><br/>
+                ACMA ZAMAN :<h:inputText value="#{etkinlikController.etkinlik.acma_zaman}"/><br/>
+                KAPATMA ZAMAN : <h:inputText value="#{etkinlikController.etkinlik.kapatma_zaman}"/><br/>
+                FIYAT : <h:inputText value="#{etkinlikController.etkinlik.fiyat}"/><br/>
+                <h:commandButton rendered="#{etkinlikController.etkinlik.id != null}" value="Update" style="background-color:  #ffc107 ; width: 10% ; height: 10%" action="#{etkinlikController.update()}" />
+                <h:commandButton rendered="#{etkinlikController.etkinlik.id == null}" value="Create" style="background-color:  #0085c3 ; width: 10% ; height: 10%" action="#{etkinlikController.create()}"/>
+            </h:form>
+            
+            
         <div class="about-bottom" id="ab">
             <div class="col-md-6 w3l_about_bottom_right two">
                 <h3 class="tittle why">Book a Reservation</h3>
@@ -254,30 +266,21 @@
                     <form action="#" method="post">
                         <div class="col-md-6 form-date-w3-agileits">
                             <label><i class="fa fa-user" aria-hidden="true" /> Name :</label>
-                            <input type="text" name="name" placeholder="Your name" required="" />
+                            <h:inputText value="#{uyeController.uye.isim}"/>
                         </div>
                         <div class="col-md-6 form-date-w3-agileits second-agile">
                             <label><i class="fa fa-envelope" aria-hidden="true" /> Email :</label>
-                            <input type="email" name="email" placeholder="Your email" required="" />
+                            <h:inputText value="#{uyeController.uye.email}" />
                         </div>
                         <div class="col-md-6 form-date-w3-agileits">
-                            <label><i class="fa fa-calendar" aria-hidden="true" /> Arrival Date :</label>
-                            <input id="datepicker" name="Text" type="text" value="mm/dd/yyyy" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                                                                    this.value = 'mm/dd/yyyy';
-                                                                                }" required="" />
-                        </div>
-                        <div class="col-md-6 form-time-w3layouts second-agile">
-                            <label><i class="fa fa-clock-o" aria-hidden="true" /> Time :</label>
-                            <input type="time" />
+                            <label><i class="fa fa-calendar" aria-hidden="true" /> Reservation Date :</label>
+                            <h:inputText value="#{rezervasyonController.rezervasyon.alma_zaman}" />
+                            <f:convertDateTime type="date" pattern="dd/mm/yyyy" />
                         </div>
                         <div class="col-md-6 form-date-w3-agileits">
-                            <label><i class="fa fa-calendar" aria-hidden="true" /> Departure Date :</label>
-                            <input id="datepicker1" name="Text" type="text" value="mm/dd/yyyy" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                                                                    this.value = 'mm/dd/yyyy';}" required="" />
-                        </div>
-                        <div class="col-md-6 form-time-w3layouts second-agile">
-                            <label><i class="fa fa-clock-o" aria-hidden="true" /> Time :</label>
-                            <input type="time" />
+                            <label><i class="fa fa-calendar" aria-hidden="true" /> Check out Date :</label>
+                            <h:inputText value="#{rezervasyonController.rezervasyon.teslim_zaman}" />
+                            <f:convertDateTime type="date" pattern="dd/mm/yyyy" />
                         </div>
                         <div class="col-md-6 form-left-agileits-w3layouts bottom-w3ls">
                             <label><i class="fa fa-home" aria-hidden="true" /> Choose a Room :</label>
