@@ -8,6 +8,26 @@
     <ui:define name="content">
         <div class="wrapper">
             <h1> Iletisim </h1>
+            <h:form>
+                <h:dataTable value="#{iletisimController.ilist}" var="iletisim" style="font-size: 1.40em;font-weight: bold; font-style: italic; text-align:center; padding: 12px 15px; background:none repeat scroll 0 0 #E5E5E5;border-bottom:1px solid #BBBBBB;border-left:1px solid #BBBBBB; border-right: 1px solid #BBBBBB; border-top:1px solid #BBBBBB; border-collapse: collapse ;color: black; width: 100%;max-width: 100%;table-layout: fixed; ">
+                    <h:column>
+                        <f:facet name="header"> ID</f:facet>
+                            #{iletisim.id}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">ISIM</f:facet>
+                            #{iletisim.isim}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">EMAIL</f:facet>
+                            #{iletisim.email}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">MSJ</f:facet>
+                            #{iletisim.msj}
+                    </h:column>
+                </h:dataTable>
+            </h:form>
         </div>
     </ui:define>
 </ui:composition>
